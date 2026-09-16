@@ -17,7 +17,8 @@ export class Login {
   login() {
     this.auth.login(this.email, this.password).subscribe({
       next: (response) => {
-        console.log(response);
+        this.auth.saveToken(response.access_token);
+        console.log('Login realizado com sucesso');
       },
       error: (error) => {
         console.error(error);
