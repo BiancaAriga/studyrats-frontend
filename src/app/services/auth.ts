@@ -25,12 +25,12 @@ export class Auth {
       },
     );
   }
-  
+
   saveToken(token: string) {
     localStorage.setItem('access_token', token);
   }
 
-  getStudySessions() {
-    return this.http.get('http://localhost:8000/study-sessions/');
+  logout() {
+    localStorage.removeItem('access_token');
   }
 }
