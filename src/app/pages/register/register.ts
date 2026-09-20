@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Auth } from '../../services/auth';
+import { Router } from '@angular/router';
 
 @Component({
   imports: [FormsModule],
@@ -10,6 +11,7 @@ import { Auth } from '../../services/auth';
 })
 export class Register {
   private auth = inject(Auth);
+  private router = inject(Router);
 
   name = '';
   email = '';
@@ -19,6 +21,17 @@ export class Register {
     this.auth.register(this.name, this.email, this.password).subscribe({
       next: (response) => {
         console.log('Conta criada com sucesso:', response);
+
+        this.auth.login(this.email, this.password).subscribe({
+          next: (response) => {
+            this.auth.saveToken(response.access_token);
+
+            this.router.navigate(['/dashboard']);
+          },
+          error: (error) => {
+            console.error('Erro ao fazer login automático:', error);
+          },
+        });
       },
       error: (error) => {
         console.error('Erro ao criar conta:', error);
