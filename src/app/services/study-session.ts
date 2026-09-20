@@ -19,4 +19,22 @@ export class StudySession {
         'http://localhost:8000/study-sessions/',
         );
     }
+    updateSession(
+        sessionId: number,
+        subject: string,
+        duration: number,
+    ) {
+        return this.http.patch(
+            `http://localhost:8000/study-sessions/${sessionId}`,
+            {
+                subject: subject,
+                duration: duration,
+            },
+        );
+    }
+    deleteSession(sessionId: number) {
+        return this.http.delete(
+            `http://localhost:8000/study-sessions/${sessionId}`,
+        );
+    }
 }
