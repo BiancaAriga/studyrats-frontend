@@ -1,0 +1,27 @@
+<h1>Check-in</h1>
+
+<form (ngSubmit)="registerStudy()">
+  <div>
+    <label for="subject">Matéria</label>
+    <input
+      id="subject"
+      name="subject"
+      type="text"
+      [(ngModel)]="subject"
+    >
+  </div>
+
+  <div>
+    <label for="duration">Tempo de estudo (minutos)</label>
+    <input
+      id="duration"
+      name="duration"
+      type="number"
+      [(ngModel)]="duration"
+    >
+  </div>
+
+  <button type="submit">
+    Registrar estudo
+  </button>
+</form>

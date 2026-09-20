@@ -5,6 +5,7 @@ import { authGuard } from './core/auth/auth-guard';
 import { homeGuard } from './core/auth/home-guard';
 import { guestGuard } from './core/auth/guest-guard';
 import { MainLayout } from './layout/main-layout/main-layout';
+import { CheckIn } from './pages/check-in/check-in';
 
 export const routes: Routes = [
   {
@@ -26,6 +27,10 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         component: Dashboard,
+      },
+      {
+        path: 'check-in',
+        component: CheckIn,
       },
     ],
   },
