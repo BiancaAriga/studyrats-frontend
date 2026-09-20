@@ -6,6 +6,7 @@ import { homeGuard } from './core/auth/home-guard';
 import { guestGuard } from './core/auth/guest-guard';
 import { MainLayout } from './layout/main-layout/main-layout';
 import { CheckIn } from './pages/check-in/check-in';
+import { Sessions } from './pages/sessions/sessions';
 
 export const routes: Routes = [
   {
@@ -31,6 +32,10 @@ export const routes: Routes = [
       {
         path: 'check-in',
         component: CheckIn,
+      },
+      {
+        path: 'sessoes',
+        component: Sessions,
       },
     ],
   },

@@ -14,4 +14,9 @@ export class StudySession {
         },
         );
     }
+    getSessions() {
+        return this.http.get(
+        'http://localhost:8000/study-sessions/',
+        );
+    }
 }

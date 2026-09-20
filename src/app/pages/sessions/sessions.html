@@ -1,0 +1,14 @@
+<h1>Minhas sessões</h1>
+
+@if (sessions.length === 0) {
+  <p>Nenhuma sessão de estudo registrada.</p>
+} @else {
+  <ul>
+    @for (session of sessions; track session.id) {
+      <li>
+        <strong>{{ session.subject }}</strong>
+        — {{ session.duration }} minutos
+      </li>
+    }
+    </ul>
+}
