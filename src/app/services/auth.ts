@@ -14,7 +14,18 @@ export class Auth {
       }
     );
   }
-
+  
+  register(name: string, email: string, password: string) {
+    return this.http.post(
+      'http://localhost:8000/users/',
+      {
+        name: name,
+        email: email,
+        password: password,
+      },
+    );
+  }
+  
   saveToken(token: string) {
     localStorage.setItem('access_token', token);
   }
