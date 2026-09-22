@@ -51,6 +51,12 @@
           >
         </div>
 
+        @if (errorMessage()) {
+          <div class="alert alert-danger" role="alert">
+            {{ errorMessage() }}
+          </div>
+        }
+
         <button
           type="submit"
           class="btn btn-primary w-100"
@@ -58,7 +64,7 @@
           Criar conta
         </button>
       </form>
-
+      
       <p class="text-center mt-3 mb-0">
         Já tem uma conta?
         <a routerLink="/login" class="link-primary">

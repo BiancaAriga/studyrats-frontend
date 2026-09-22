@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Auth } from '../../services/auth';
 import { Router, RouterLink } from '@angular/router';
+import { ApiError } from '../../services/api-error';
 
 @Component({
   imports: [FormsModule, RouterLink],
@@ -12,6 +13,8 @@ import { Router, RouterLink } from '@angular/router';
 export class Register {
   private auth = inject(Auth);
   private router = inject(Router);
+  private apiError = inject(ApiError);
+  errorMessage = signal('');
 
   name = '';
   email = '';
@@ -29,12 +32,16 @@ export class Register {
             this.router.navigate(['/dashboard']);
           },
           error: (error) => {
-            console.error('Erro ao fazer login automático:', error);
+            this.errorMessage.set(
+              this.apiError.getMessage(error)
+            );
           },
         });
       },
       error: (error) => {
-        console.error('Erro ao criar conta:', error);
+        this.errorMessage.set(
+          this.apiError.getMessage(error)
+        );
       },
     });
   }

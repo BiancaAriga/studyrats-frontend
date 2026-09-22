@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Auth } from '../../services/auth';
 import { Router, RouterLink } from '@angular/router';
+import { ApiError } from '../../services/api-error';
 
 @Component({
   imports: [FormsModule, RouterLink],
@@ -12,6 +13,9 @@ import { Router, RouterLink } from '@angular/router';
 export class Login {
   private auth = inject(Auth);
   private router = inject(Router);
+  
+  private apiError = inject(ApiError);
+  errorMessage = signal('');
 
   email = '';
   password = '';
@@ -23,7 +27,7 @@ export class Login {
         this.router.navigate(['/dashboard']);
       },
       error: (error) => {
-        console.error(error);
+        this.errorMessage.set(this.apiError.getMessage(error));
       },
     });
   }
