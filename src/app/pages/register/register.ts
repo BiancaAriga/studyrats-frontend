@@ -39,6 +39,7 @@ export class Register {
         });
       },
       error: (error) => {
+        console.log('ERRO DE CADASTRO:', error);
         this.errorMessage.set(
           this.apiError.getMessage(error)
         );
