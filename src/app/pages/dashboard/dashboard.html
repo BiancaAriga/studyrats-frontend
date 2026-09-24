@@ -1,1 +1,81 @@
-<p>dashboard works!</p>
+<div class="container-fluid p-4">
+
+  <!-- Cabeçalho -->
+  <div class="mb-4">
+    <h1 class="fw-bold mb-1">
+      Olá {{ userName() }}! 👋
+    </h1>
+
+    <p class="text-muted mb-0">
+      Vamos estudar hoje?
+    </p>
+  </div>
+
+  <div class="row g-4">
+
+    <!-- Quote -->
+    <section class="col-12 col-lg-7">
+      <div class="text-start h-100 dashboard-card rounded-3 p-3">
+
+        <div class="d-flex align-items-center justify-content-center mb-3">
+          <i
+            class="bi bi-quote fs-2 text-primary"
+            aria-hidden="true"
+          ></i>
+        </div>
+
+        <p class="mb-3 fst-italic fw-bold">
+          "{{ quoteText() }}"
+        </p>
+
+        <p class="text-muted mb-3">
+          — {{ quoteAuthor() }}
+        </p>
+
+        <small class="text-muted">
+          Inspirational quotes provided by
+          <a
+            href="https://zenquotes.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ZenQuotes API
+          </a>
+        </small>
+
+      </div>
+    </section>
+
+    <!-- Meta -->
+    <section class="col-12 col-lg-5">
+      <div class="h-100 dashboard-card rounded-3 p-3">
+
+        <h2 class="h5 fw-bold mb-3">
+          Sua meta de hoje
+        </h2>
+
+        <div class="d-flex align-items-center gap-3">
+
+          <i
+            class="bi bi-bullseye fs-2 text-primary"
+            aria-hidden="true"
+          ></i>
+
+          <div>
+            <p class="text-muted mb-1">
+              Tempo de estudo
+            </p>
+
+            <p class="h4 fw-bold mb-0">
+              2h
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+</div>

@@ -6,12 +6,12 @@
   );
 }
 
-a {
+.sidebar__link {
     color: var(--text-muted);
 }
 
-a.active {
-  background-color: color-mix(in srgb, var(--primary) 20%, transparent);
+.sidebar__link--active {
+  background-color: var(--primary-subtle);
   color: var(--primary);
   border: 1px solid var(--primary);
 }
