@@ -33,4 +33,13 @@ export class Auth {
   logout() {
     localStorage.removeItem('access_token');
   }
+
+  getMe() {
+    return this.http.get<{
+      id: number;
+      name: string;
+      email: string;
+      created_at: string;
+    }>('http://localhost:8000/auth/me');
+  }
 }

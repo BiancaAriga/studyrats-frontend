@@ -1,0 +1,25 @@
+.logo-icon {
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--danger)
+  );
+}
+
+a {
+    color: var(--text-muted);
+}
+
+a.active {
+  background-color: color-mix(in srgb, var(--primary) 20%, transparent);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.logout-button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  cursor: pointer;
+}
