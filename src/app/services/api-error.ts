@@ -34,6 +34,12 @@ export class ApiError {
       case 'name':
         return 'O nome deve ter entre 1 e 100 caracteres.';
 
+      case 'subject':
+        return 'Informe a matéria estudada.';
+
+      case 'duration':
+        return 'O tempo de estudo deve ser maior que 0 minutos.';
+
       default:
         return 'Verifique os dados informados.';
     }

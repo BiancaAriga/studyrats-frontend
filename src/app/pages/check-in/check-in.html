@@ -1,27 +1,85 @@
-<h1>Check-in</h1>
+<div class="container-fluid p-4">
 
-<form (ngSubmit)="registerStudy()">
-  <div>
-    <label for="subject">Matéria</label>
-    <input
-      id="subject"
-      name="subject"
-      type="text"
-      [(ngModel)]="subject"
-    >
+  <div class="mb-4">
+    <h1 class="fw-bold mb-1">
+      Check-in
+    </h1>
+
+    <p class="text-muted mb-0">
+      Registre uma nova sessão de estudo.
+    </p>
   </div>
 
-  <div>
-    <label for="duration">Tempo de estudo (minutos)</label>
-    <input
-      id="duration"
-      name="duration"
-      type="number"
-      [(ngModel)]="duration"
-    >
-  </div>
+  <section class="check-in-card rounded-3">
 
-  <button type="submit">
-    Registrar estudo
-  </button>
-</form>
+    <h2 class="h5 fw-bold mb-4 text-muted">
+      Nova sessão
+    </h2>
+
+    @if (successMessage()) {
+      <div class="alert alert-success" role="alert">
+        {{ successMessage() }}
+      </div>
+    }
+
+    @if (errorMessage()) {
+      <div class="alert alert-danger" role="alert">
+        {{ errorMessage() }}
+      </div>
+    }
+
+    <form (ngSubmit)="registerStudy()">
+
+      <div class="mb-3 text-muted">
+        <label
+          for="subject"
+          class="form-label fw-semibold"
+        >
+          Matéria
+        </label>
+
+        <input
+          id="subject"
+          name="subject"
+          type="text"
+          class="form-control"
+          [(ngModel)]="subject"
+          placeholder="Ex.: Matemática"
+          required
+        >
+      </div>
+
+      <div class="mb-4 text-muted">
+        <label
+          for="duration"
+          class="form-label fw-semibold"
+        >
+          Tempo de estudo (minutos)
+        </label>
+
+        <input
+          id="duration"
+          name="duration"
+          type="number"
+          class="form-control"
+          [(ngModel)]="duration"
+          min="1"
+          placeholder="Ex.: 60"
+          required
+        >
+      </div>
+
+      <div class="d-flex justify-content-end">
+        <button
+          type="submit"
+          class="btn btn-primary"
+        >
+          Registrar sessão
+        </button>
+      </div>
+
+    </form>
+
+  </section>
+
+</div>

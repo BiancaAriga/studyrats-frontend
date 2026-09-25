@@ -27,3 +27,8 @@
   --body-bg: #0F0C16;
   --body-color: #FFFFFF;
 }
+
+.app-card {
+  background-color: var(--primary-subtle);
+  border: 1px solid var(--primary);
+}
