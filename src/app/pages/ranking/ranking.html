@@ -1,0 +1,80 @@
+<div class="container-fluid p-4">
+
+  <div class="mb-4">
+    <h1 class="fw-bold mb-1">
+      Ranking
+    </h1>
+
+    <p class="text-muted mb-0">
+      Veja quem está estudando mais.
+    </p>
+  </div>
+
+
+  <!-- Top 3 -->
+
+  <section class="mb-4">
+
+    <h2 class="h5 fw-bold mb-3">
+      Top 3
+    </h2>
+
+    <div class="row g-3">
+
+      @for (user of ranking().slice(0, 3); track user.user_id) {
+
+        <div class="col-12 col-md-4">
+
+          <article
+            class="app-card ranking__podium rounded-3 p-4 text-center"
+            [class.ranking__first]="$index === 0"
+          >
+
+            <div class="ranking__position mb-2">
+
+              @if ($index === 0) {
+                🥇
+              } @else if ($index === 1) {
+                🥈
+              } @else {
+                🥉
+              }
+
+            </div>
+
+            <h3 class="ranking__user h5 fw-bold mb-2">
+              {{ user.user_name }}
+            </h3>
+
+            <p class="ranking__time mb-0">
+              {{ user.total_duration }} minutos
+            </p>
+
+          </article>
+
+        </div>
+
+      }
+
+    </div>
+
+  </section>
+
+
+    <!-- Ranking geral -->
+
+    <section>
+        <h2 class="h5 fw-bold mb-3">
+            Ranking geral
+        </h2>
+        <div class="app-card rounded-3 p-4">
+            <canvas
+            baseChart
+            [data]="barChartData"
+            [type]="barChartType"
+            [options]="barChartOptions"
+            ></canvas>
+        </div>
+    </section>
+
+</div>

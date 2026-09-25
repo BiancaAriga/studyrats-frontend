@@ -8,6 +8,7 @@ import { guestGuard } from './core/auth/guest-guard';
 import { MainLayout } from './layout/main-layout/main-layout';
 import { CheckIn } from './pages/check-in/check-in';
 import { Sessions } from './pages/sessions/sessions';
+import { Ranking } from './pages/ranking/ranking';
 
 export const routes: Routes = [
   {
@@ -42,6 +43,10 @@ export const routes: Routes = [
       {
         path: 'sessoes',
         component: Sessions,
+      },
+      {
+        path: 'ranking',
+        component: Ranking,
       },
     ],
   },

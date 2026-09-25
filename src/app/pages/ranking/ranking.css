@@ -1,0 +1,20 @@
+.ranking__podium {
+  min-height: 220px;
+}
+
+.ranking__position {
+  font-size: 3rem;
+}
+
+.ranking__user {
+  font-size: 1.1rem;
+}
+
+.ranking__time {
+  color: var(--text-muted);
+}
+
+.ranking__first {
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 20px var(--primary-subtle);
+}
