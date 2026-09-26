@@ -1,0 +1,11 @@
+.ranking__user--first {
+  color: var(--gold);
+}
+
+.ranking__user--second {
+  color: var(--silver);
+}
+
+.ranking__user--third {
+  color: var(--bronze);
+}

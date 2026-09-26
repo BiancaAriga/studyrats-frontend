@@ -11,11 +11,14 @@
     </p>
   </div>
 
-  <div class="row g-4">
+
+  <!-- Quote + Top 3 -->
+  <div class="row g-4 mb-4">
 
     <!-- Quote -->
     <section class="col-12 col-lg-7">
-      <div class="text-start h-100 app-card rounded-3 p-3">
+
+      <div class="text-start h-100 app-card rounded-3 p-4">
 
         <div class="d-flex align-items-center justify-content-center mb-3">
           <i
@@ -44,37 +47,173 @@
         </small>
 
       </div>
+
     </section>
 
-    <!-- Meta -->
-    <section class="col-12 col-lg-5">
-      <div class="h-100 app-card rounded-3 p-3">
 
-        <h2 class="h5 fw-bold mb-3">
-          Sua meta de hoje
-        </h2>
+    <!-- Top 3 -->
+    <section class="col-12 col-lg-5">
+
+      <div class="app-card rounded-3 p-4 h-100">
+
+        <div class="d-flex align-items-center gap-2 mb-4">
+
+          <i
+            class="bi bi-trophy text-warning"
+            aria-hidden="true"
+          ></i>
+
+          <h2 class="h5 fw-bold mb-0">
+            Top 3
+          </h2>
+
+        </div>
+
+
+        @for (user of ranking().slice(0, 3); track user.user_id) {
+
+          <div
+            class="d-flex align-items-center justify-content-between mb-3"
+          >
+
+            <div class="d-flex align-items-center gap-3">
+
+              <span class="fs-5">
+                @if ($index === 0) {
+                  🥇
+                } @else if ($index === 1) {
+                  🥈
+                } @else {
+                  🥉
+                }
+              </span>
+
+              <span
+                class="fw-semibold ranking__user"
+                [class.ranking__user--first]="$index === 0"
+                [class.ranking__user--second]="$index === 1"
+                [class.ranking__user--third]="$index === 2"
+              >
+                {{ user.user_name }}
+              </span>
+
+            </div>
+
+            <span class="text-white">
+              {{ user.total_duration }} min
+            </span>
+
+          </div>
+
+        }
+
+      </div>
+
+    </section>
+
+  </div>
+
+
+  <!-- Resumo -->
+  <div class="row g-3">
+
+    <!-- Tempo estudado -->
+    <div class="col-12 col-md-4">
+
+      <section class="app-card rounded-3 p-4 h-100">
 
         <div class="d-flex align-items-center gap-3">
 
           <i
-            class="bi bi-bullseye fs-2 text-primary"
+            class="bi bi-clock fs-2 text-primary"
             aria-hidden="true"
           ></i>
 
           <div>
-            <p class="text-muted mb-1">
-              Tempo de estudo
+
+            <p class="text-white mb-1">
+              Tempo estudado
             </p>
 
-            <p class="h4 fw-bold mb-0">
-              2h
+            <p class="h4 fw-bold mb-0 text-warning">
+              {{ totalStudyTime() }} min
             </p>
+
           </div>
 
         </div>
 
-      </div>
-    </section>
+      </section>
+
+    </div>
+
+
+    <!-- Sessões -->
+    <div class="col-12 col-md-4">
+
+      <section class="app-card rounded-3 p-4 h-100">
+
+        <div class="d-flex align-items-center gap-3">
+
+          <i
+            class="bi bi-journal-check fs-2 text-primary"
+            aria-hidden="true"
+          ></i>
+
+          <div>
+
+            <p class="text-white mb-1">
+              Sessões
+            </p>
+
+            <p class="h4 fw-bold mb-0 text-success">
+              {{ sessionCount() }}
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <!-- Posição no ranking -->
+    <div class="col-12 col-md-4">
+
+      <section class="app-card rounded-3 p-4 h-100">
+
+        <div class="d-flex align-items-center gap-3">
+
+          <i
+            class="bi bi-trophy fs-2 text-primary"
+            aria-hidden="true"
+          ></i>
+
+          <div>
+
+            <p class="text-white mb-1">
+              Posição no ranking
+            </p>
+
+            <p class="h4 fw-bold mb-0 text-danger">
+
+              @if (rankingPosition() !== null) {
+                {{ rankingPosition() }}º
+              } @else {
+                —
+              }
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
 
   </div>
 
