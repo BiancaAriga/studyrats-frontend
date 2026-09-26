@@ -28,6 +28,8 @@
           <article
             class="app-card ranking__podium rounded-3 p-4 text-center"
             [class.ranking__first]="$index === 0"
+            [class.ranking__second]="$index === 1"
+            [class.ranking__third]="$index === 2"
           >
 
             <div class="ranking__position mb-2">
@@ -67,7 +69,7 @@
         <h2 class="h5 fw-bold mb-3">
             Ranking geral
         </h2>
-        <div class="app-card rounded-3 p-4">
+        <div class="app-card rounded-3 p-4 ranking__chart">
             <canvas
             baseChart
             [data]="barChartData"

@@ -6,6 +6,21 @@
   font-size: 3rem;
 }
 
+.ranking__first {
+  border-color: var(--gold);
+  background-color: var(--gold-subtle);
+}
+
+.ranking__second {
+  border-color: var(--silver);
+  background-color: var(--silver-subtle);
+}
+
+.ranking__third {
+  border-color: var(--bronze);
+  background-color: var(--bronze-subtle);
+}
+
 .ranking__user {
   font-size: 1.1rem;
 }
@@ -14,7 +29,6 @@
   color: var(--text-muted);
 }
 
-.ranking__first {
-  border: 1px solid var(--primary);
-  box-shadow: 0 0 20px var(--primary-subtle);
+.ranking__chart {
+  height: 470px;
 }

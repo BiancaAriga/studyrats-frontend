@@ -26,6 +26,24 @@
   --text-muted: #8B8A9D;
   --body-bg: #0F0C16;
   --body-color: #FFFFFF;
+  --gold: #F59E0B;
+  --gold-subtle: color-mix(
+    in srgb,
+    var(--gold) 15%,
+    transparent
+  );
+  --silver: #9CA3AF;
+  --silver-subtle: color-mix(
+    in srgb,
+    var(--silver) 15%,
+    transparent
+  );
+  --bronze: #B45309;
+  --bronze-subtle: color-mix(
+    in srgb,
+    var(--bronze) 15%,
+    transparent
+  );
 }
 
 .app-card {

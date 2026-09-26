@@ -36,6 +36,40 @@ export class Ranking {
   public barChartOptions: ChartConfiguration<'bar'>['options'] = {
     responsive: true,
     indexAxis: 'y',
+
+    plugins: {
+      legend: {
+        labels: {
+          color: '#FFFFFF',
+        },
+      },
+    },
+
+    scales: {
+      x: {
+        ticks: {
+          color: '#FFFFFF',
+          font: {
+            weight: 'bold',
+          },
+        },
+        grid: {
+          color: 'rgba(255, 255, 255, 0.08)',
+        },
+      },
+
+      y: {
+        ticks: {
+          color: '#FFFFFF',
+          font: {
+            weight: 'bold',
+          },
+        },
+        grid: {
+          display: false,
+        },
+      },
+    },
   };
 
   ngOnInit() {
@@ -49,6 +83,9 @@ export class Ranking {
             {
               data: response.map((user) => user.total_duration),
               label: 'Tempo de estudo (minutos)',
+              backgroundColor: getComputedStyle(document.documentElement)
+                .getPropertyValue('--danger'),
+              barThickness: 12,
             },
           ],
         };
